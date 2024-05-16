@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "class-validator": "^0.14.1",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "fast-glob": "^3.3.2",
@@ -18,7 +19,9 @@
     "mongoose": "^8.3.4",
     "nodemon": "^3.1.0",
     "typescript": "^5.4.5",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "winston": "^3.13.0",
+    "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",

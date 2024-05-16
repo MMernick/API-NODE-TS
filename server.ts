@@ -1,5 +1,7 @@
 import app from "./src/app";
 
-app.listen(3000, () => {
-    console.log('Listening on 3000')
-})
+import { logger } from './src/libraries/logger';
+
+app.listen(process.env.APP_PORT, () => {
+  logger.info(`Listening on: ${process.env.APP_PORT}`);
+});
