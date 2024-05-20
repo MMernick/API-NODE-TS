@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es2022",
+    "target": "esnext",
     "module": "commonjs",
-    "types": ["node", "express"],
+    "types": ["node", "express","jest"],
     "outDir": "./dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -11,6 +11,10 @@
     "experimentalDecorators": true,
     "strictPropertyInitialization": false
   },
+  "exclude": ["node_modules", "./coverage", "./dist", "__tests__", "jest.config.js"],
   "include": ["src/**/*", "server.ts"],
-  "exclude": ["node_modules"]
+  "ts-node": {
+    "transpileOnly": true,
+    "files": true
+  },
 }

@@ -1,6 +1,6 @@
 import { Model } from 'mongoose';
 import { UserInterface } from './interfaces/user.interface';
-import { logger } from '../../libraries/logger';
+import { logger } from '../../logger';
 import { CreateUserDto } from './dto/create.dto';
 import { UpdateUserDto } from './dto/update.dto';
 
@@ -41,17 +41,14 @@ export class UserService {
     }
   }
 
-  async update(id: string, data: UpdateUserDto): Promise<UpdateUserDto | null> {
+  async update(id: string, data: UpdateUserDto): Promise<Partial<UserInterface | null>> {
     try {
       const user = await this.UserModel.findById(id);
       if (!user) throw new Error('User not found');
 
       const updatedUser = await this.UserModel.findByIdAndUpdate(id, data);
-      if (!updatedUser) return null;
 
-      const { nome, email } = updatedUser.toObject();
-
-      return { nome, email };
+      return updatedUser;
     } catch (error) {
       logger.error(`Error updating user: ${error}`);
       throw new Error('Failed to update user');
